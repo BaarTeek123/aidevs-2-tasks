@@ -16,10 +16,10 @@ class ApiHandler:
             return f"{self.base_url}/{endpoint}/{token}"
         return f"{self.base_url}"
 
-    def _post_request(self, endpoint=None, token=None, data=None, headers=None):
+    def _post_request(self, endpoint=None, token=None, json=None,  headers=None, **kwargs):
 
         url = self._get_url(endpoint, token)
-        response = requests.post(url, json=data, headers=headers)
+        response = requests.post(url, json=json, headers=headers, **kwargs)
         response.raise_for_status()
         return response.json()
 
