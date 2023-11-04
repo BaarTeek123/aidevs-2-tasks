@@ -20,11 +20,11 @@ try:
 
     with Task(task_name=TASK_NAME) as task:
         print(f"Token for {task.task_name}: {task.task_token}")
-        info_table = [Document(page_content=sentence, metadata = {"source": sentence.split()[0]})
+        info_table = [Document(page_content=sentence, metadata = {"person": sentence.split()[0]})
                        for sentence in task.content['input']]
-        print("Question: f{task.content['question']}")
+        print(f"Question: {task.content['question']}")
         ### filter documents:
-        docs = [doc.page_content for doc in info_table if doc.metadata['source'] in task.content['question']]
+        docs = [doc.page_content for doc in info_table if doc.metadata['person'] in task.content['question']]
 
         ### define model
         OPENAI_MODEL = 'gpt-3.5-turbo'
