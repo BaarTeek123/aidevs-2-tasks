@@ -1,9 +1,10 @@
-from UTILS.settings import AIDEVS2_API_KEY
+import os
+
 import requests
 from dotenv import load_dotenv
 
 load_dotenv()
-
+AIDEVS2_API_KEY = os.getenv('AIDEVS2_API_KEY')
 
 
 class ApiHandler:

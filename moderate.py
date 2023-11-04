@@ -1,7 +1,12 @@
+import os
+from dotenv import load_dotenv
+
 from Task import ApiHandler
-from UTILS.settings import OPENAI_API_KEY
 from Task import Task
 import logging
+
+load_dotenv()
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 
 def moderate_text(text):

@@ -1,9 +1,6 @@
-from Task import Task, ApiHandler
+from Task import Task
 import logging
 from langchain.chat_models import ChatOpenAI
-from UTILS.settings import  OPENAI_API_KEY
-from langchain.memory import ConversationBufferWindowMemory
-from langchain.chains import ConversationChain
 from dotenv import load_dotenv, find_dotenv
 from langchain.schema import SystemMessage, HumanMessage, AIMessage
 

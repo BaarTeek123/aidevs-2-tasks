@@ -1,13 +1,17 @@
 import logging
 from Task import Task
+import os
 
 from langchain.chat_models import ChatOpenAI
-from UTILS.settings import  OPENAI_API_KEY
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.chains import ConversationChain
 from dotenv import load_dotenv, find_dotenv
 
-load_dotenv(find_dotenv())
+
+load_dotenv()
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+
+
 
 SYSTEM_TEMPLATE = """As a Famous author of a cookbooks who writes his own blog IN POLISH LANGUAGE and nothing more and truthfully says "don't know" when the CONTEXT is not enough to give an answer.
 Write short blog post (IN POLISH LANGUAGE, 4-5 sentences) about the following topic: {topic}"""

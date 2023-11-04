@@ -1,14 +1,19 @@
 import logging
+
+from dotenv import load_dotenv
+import os
 from langchain.schema import Document
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.chains import ConversationChain
-
-from UTILS.settings import OPENAI_API_KEY
 from Task import Task
 
 
+load_dotenv()
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+
 OPENAI_MODEL = 'gpt-3.5-turbo'
+
 
 
 SYSTEM_TEMPLATE = ("""As a good person, answer a simple question. "
