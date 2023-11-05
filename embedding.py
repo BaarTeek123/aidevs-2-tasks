@@ -8,10 +8,6 @@ load_dotenv()
 
 MODEL = 'text-embedding-ada-002'
 
-SYSTEM_TEMPLATE = ("""As a good person, answer a simple question. "
-
-                   ### context ###
-                   {context}""")
 try:
     TASK_NAME = 'embedding'
 
