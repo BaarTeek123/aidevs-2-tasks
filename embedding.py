@@ -16,16 +16,9 @@ try:
         print(f"Question: {task.content['msg']}")
 
         keyword = "Hawaiian pizza"
-        embeddings = OpenAIEmbeddings()
-        query = embeddings.embed_query(keyword)
+        query = OpenAIEmbeddings().embed_query(keyword)
         final_answer = task.api._post_request(endpoint='answer', token=task.task_token, json={'answer': query})
         print(final_answer)
-
-
-
-
-
-
 
 except KeyError as ke:
     logging.error('Something went wrong. No token or task found.')
