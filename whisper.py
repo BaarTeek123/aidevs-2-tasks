@@ -3,7 +3,6 @@ import logging
 from dotenv import load_dotenv
 from Task import Task
 
-
 import requests
 import openai
 
@@ -31,8 +30,6 @@ try:
                     f.write(chunk)
             audio_file = open(file_name, "rb")
             transcript = openai.Audio.transcribe("whisper-1", audio_file, response_format="text")
-
-            # transcript = openai.Audio.translate("whisper-1", audio_file)
 
             final_answer = task.api._post_request(endpoint='answer', token=task.task_token,
                                                   json={'answer': transcript})
