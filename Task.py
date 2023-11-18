@@ -68,3 +68,5 @@ class Task:
         if self.send_response:
             result = self.send_answer(answer=self.content)
             print(result)
+
+

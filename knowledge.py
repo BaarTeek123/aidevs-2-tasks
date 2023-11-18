@@ -37,10 +37,6 @@ def get_dataframe_info(df):
     })) + str(f'df.head(2): {df.head(2)}')
 
 
-
-
-
-
 def _sanitize_output(text: str):
     logging.info(f'{text}')
     if '```' in text.lower() or 'python' in text.lower() or ast.parse(text):
@@ -123,7 +119,7 @@ Today is November 13, 2023
         chain = chat_template | model | StrOutputParser() | _sanitize_output
 
 
-        logging.info(f"Invoking")
+        logging.info("Invoking")
         logging.info(f"User: {task.content['question']}")
         response = chain.invoke({'schema_a': get_dataframe_info(currency_df), "schema_b" : get_dataframe_info(population_df), "question":task.content['question']})
 
