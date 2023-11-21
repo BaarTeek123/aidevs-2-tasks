@@ -4,10 +4,6 @@ from dotenv import load_dotenv
 from Task import Task
 
 
-import requests
-import openai
-
-
 
 load_dotenv()
 

@@ -49,9 +49,6 @@ try:
             SystemMessage(content=SYSTEM_TEMPLATE),
             HumanMessage(content=task.content['question'])])
 
-
-
-
         logging.info(f"{response}")
         final_answer = task.api._post_request(endpoint='answer', token=task.task_token,
                                                   json={'answer': ast.literal_eval(response.content)})
